@@ -1,0 +1,17 @@
+{% extends "blog/layout.html" %}
+
+{% block metatag %}
+<meta name="og:title" content="" />
+<meta name="og:image" content="" />
+{% endblock %}
+{% block content %}
+
+<h3>{{ post.title }}</h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div style="height: 200px; background-color: pink; font-size: 30px; text-align: center; padding-top: 80px;">정말로 삭제하시겠습니까?</div>
+    <input type="submit" value="삭제하겠습니다." class="btn btn-danger btn-block" />
+</form>
+
+{% endblock %}

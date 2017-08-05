@@ -35,6 +35,27 @@
           </div>
         </div>
     </div>
+    <div class="row">
+<div class="container" style="height: 50px;">
+    <div class="pull-right" style="height: 20px; display: block;">
+        <a href={% url "blog:blog_list" %} class="btn btn-primary" role="button" style="width: 200px; display: inline; padding: 5px;">메인가기</a>
+        <a href={% url "blog:blog_edit" post.id %} class="btn btn-info" role="button" style="width: 200px; display: inline; padding: 5px;">수정하기</a>
+        <a href={% url "blog:blog_delete" post.id %} class="btn btn-danger" role="button" style="width: 200px; display: inline; padding: 5px;">삭제하기</a>
+    </div>
+</div>
+<div class="container">
+  {% for post in post_list reversed %}
+    <div class="col-xs-6 col-md-3">
+      <div class="thumbnail">
+        <img src="{{ post.image_url }}" style="width: 202.5px; height: 120px;">
+        <div class="caption">
+          <h4 style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 2.4em; word-breka:keep-word;">{{ post.kor_title }}</h4>
+          <p style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 6.0em; word-breka:keep-word;">{{ post.kor_content }}</p>
+          <p><a href="{% url "blog:blog_detail" post.id %}" class="btn btn-primary" role="button">번역 보기</a> <a href="{{ post.target_url }}" class="btn btn-default" role="button">원문 보기</a></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </div>
 
 {% endblock %}

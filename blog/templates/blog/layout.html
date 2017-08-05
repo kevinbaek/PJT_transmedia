@@ -24,18 +24,17 @@
 </head>
 <body>
   <div style="text-align: center;">
-    <img src="https://preview.ibb.co/cegVBa/logo.png" alt="logo" border="0" style="height: 60px; padding: 10px;"">
+    <a href={% url "blog:blog_list" %}><img src="https://preview.ibb.co/cegVBa/logo.png" alt="logo" border="0" style="height: 60px; padding: 10px;""></a>
   </div>
-  <div class="blog-masthead">
+  <div class="blog-masthead ">
     <div class="container" style="text-align: center;">
       <nav class="blog-nav">
-        <a class="blog-nav-item active" href="{% url 'blog:blog_list' %}">Auto-translated Contents</a>
+        <a class="blog-nav-item active" href="{% url 'blog:blog_list' %}">Main</a>
         <a class="blog-nav-item" href="{% url 'blog:crawler_new' %}">Crawler</a>
         <a class="blog-nav-item" href="{% url 'blog:profile' %}">About</a>
       </nav>
     </div>
   </div>
-
 
 {% block content %}
 {% endblock %}

@@ -5,11 +5,19 @@
 <meta name="og:image" content="" />
 {% endblock %}
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-striped .table-hover">
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" class="btn btn-primary btn-block" />
+            </form>
+        </div>
+    </div>
+</div>
 
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>{{ form.as_table }}</table>
-        <input type="submit" class="btn btn-primary btn-block" />
-    </form>
 
 {% endblock %}
