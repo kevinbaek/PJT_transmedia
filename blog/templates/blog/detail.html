@@ -1,0 +1,40 @@
+{% extends "blog/layout.html" %}
+
+{% block metatag %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+      <div class="blog-header">
+        <p class="lead blog-description">해당 콘텐츠는 TechCrunch의 기사를 자동번역한 기사입니다.</p>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 blog-main">
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{ post.kor_title }}</h2>
+            <p class="blog-post-meta">{{ post.created_at }} by <a href="{{ post.target_url }}">TechCrunch</a></p>
+            <div style="text-align: center; padding: 20px; padding-bottom: 40px;">
+                <img src="{{ post.image_url }}">
+            </div>
+            <div class="col-xs-6">
+                <h4>Auto-Translated</h4>
+                <blockquote>
+                <p>
+                    {{ post.kor_content }}
+                </p>
+                </blockquote>
+            </div>
+            <div class="col-xs-6">
+                <h4>Original Contents</h4>
+                <blockquote>
+                <p>
+                    {{ post.eng_content }}
+                </p>
+                </blockquote>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

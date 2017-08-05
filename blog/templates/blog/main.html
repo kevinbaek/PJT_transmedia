@@ -4,8 +4,36 @@
 {% endblock %}
 
 {% block content %}
-
-본문
+<div class="container">
+  <div style="height: 20px;"></div>
+  <div class="row">
+  {% for post in post_list|slice:":1" reversed %}
+  <div class="row featurette">
+      <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading" style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 2.4em;">{{ post.kor_title }}</h2>
+          <p class="lead" style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 4.8em;">{{ post.kor_content }}</p>
+          <p><a href="{% url "blog:blog_detail" post.id %}" class="btn btn-primary" role="button">번역 보기</a> <a href="{{ post.target_url }}" class="btn btn-default" role="button">원문 보기</a></p>
+      </div>
+      <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block img-thumbnail" src="{{ post.image_url }}" alt="Main Article">
+      </div>
+  </div>
+  {% endfor %}
+  <div style="height: 20px;"></div>
+  {% for post in post_list|slice:"1:" reversed %}
+    <div class="col-xs-6 col-md-3">
+      <div class="thumbnail">
+        <img src="{{ post.image_url }}" style="width: 202.5px; height: 120px;">
+        <div class="caption">
+          <h4 style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 2.4em;">{{ post.kor_title }}</h4>
+          <p style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2; height: 6.0em;">{{ post.kor_content }}</p>
+          <p><a href="{% url "blog:blog_detail" post.id %}" class="btn btn-primary" role="button">번역 보기</a> <a href="{{ post.target_url }}" class="btn btn-default" role="button">원문 보기</a></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
 
 {% endblock %}
 

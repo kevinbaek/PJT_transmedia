@@ -1,7 +1,7 @@
 from django.db import models
 from bs4 import BeautifulSoup
 import requests
-import goslate
+from googletrans import Translator
 
 def Crawler(target_url):
     req = requests.get(target_url)
@@ -24,7 +24,7 @@ def Crawler(target_url):
 
     return contents_body, contents_title, contents_url, contents_image
 
-def Translator(contents_body, contents_title, contents_url, contents_image):
-    gs = goslate.Goslate()
-    return gs.translate(contents_body, 'ko'), gs.translate(contents_title, 'ko')
-
+def Transla(contents_body, contents_title, contents_url, contents_image): 
+    translator = Translator()
+    translation = translator.translate(contents_title, src='en', dest='ko')
+    return translation.text
