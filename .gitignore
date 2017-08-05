@@ -1,0 +1,7 @@
+__pycache__
+db.sqlite3
+staticfiles
+media
+pythoncrawler.ipynb
+static
+.ipynb_checkpoints
